@@ -1,0 +1,43 @@
+
+.c{text-align:center}.l{text-align:left}.r{text-align:right}.fl{float:left}.fr{float:right}
+
+#user_panel.ui-panel-display-reveal {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.ui-panel-page-content-position-left {
+    -webkit-box-shadow: -5px 0px 5px rgba(0,0,0,.15);
+    -moz-box-shadow: -5px 0px 5px rgba(0,0,0,.15);
+    box-shadow: -5px 0px 5px rgba(0,0,0,.15);
+}
+
+
+.no_ws p {
+white-space:pre-wrap !important;
+}
+
+a.r_t {
+color:#BD362F;
+}
+
+.post_list.ui-listview > .ui-li-static.ui-li-has-icon {
+padding-left:3.5em;
+}
+
+.post_list.ui-listview > li.ui-li-has-icon img.ui-li-icon {
+max-width:2em;
+max-height:2em;
+}
+
+.no_u {
+text-decoration:none;
+}
+
+
+
+
+.button-wrap {
+    margin-left: 5px;
+    margin-right: 5px;
+}
