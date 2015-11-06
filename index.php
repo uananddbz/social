@@ -186,12 +186,12 @@ $( "#search_friend" ).on( "listviewbeforefilter", function ( e, data ) {
 
 <form data-ajax="false" id="post_form">
 <input name="task" value="add_post" type="hidden">
-<div class="container_12">
+<div class="ui-bar">
 
 
-<p style="padding:5px;" class="grid_7" ><textarea placeholder="What's on your mind?" id="content" name="content"></textarea>
-</p><p style="padding:5px;" class="grid_4"> <button  type="button" data-shadow="false" id="sub_but" data-theme="g">POST</button>
-</p></div>
+<textarea placeholder="What's on your mind?" id="content" name="content"></textarea>
+<button  type="button" data-shadow="false" id="sub_but" data-theme="g">POST</button>
+</div>
 
 </form>
 
