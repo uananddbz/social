@@ -277,6 +277,7 @@ $this->check_login();
 $data['uid']=$this->uid;
 $data['title']=$title;
 $data['content']=$_POST['content'];
+$data['time']=date("Y-m-d H:i:s",time());
 if ($this->db->insert("notes",$data)) {return 1;}
 else {return 0;}
 }

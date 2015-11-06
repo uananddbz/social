@@ -109,7 +109,6 @@ $.ajax({url:"ajax.php",
 	   data:data,
 	   type:'POST',
 	   success:function(result) {
-  $('#form_popup').popup('close');
   $('#content').val('');
   refresh_posts();
 	   }
@@ -184,22 +183,17 @@ $( "#search_friend" ).on( "listviewbeforefilter", function ( e, data ) {
 <!--CONTAINER-->
 <div role="main" class="ui-content">
 
-<div style="min-width:300px" data-role="popup" id="form_popup" data-overlay-theme="a" data-theme="d">
 
 <form data-ajax="false" id="post_form">
 <input name="task" value="add_post" type="hidden">
-<div class="ui-body"><div class="container_12">
+<div class="container_12">
 
-<div class="ui-bar" style="padding-left:0; padding-right:0;"><textarea placeholder="What's on your mind?" id="content" name="content"></textarea>
-<button data-icon="check"  type="button" data-shadow="false" id="sub_but" data-theme="g">SHARE</button></div></div>
-</div>
+
+<p style="padding:5px;" class="grid_7" ><textarea placeholder="What's on your mind?" id="content" name="content"></textarea>
+</p><p style="padding:5px;" class="grid_4"> <button  type="button" data-shadow="false" id="sub_but" data-theme="g">POST</button>
+</p></div>
+
 </form>
-
-</div>
-
-<div class="ui-bar">
-<a href="#form_popup" data-transition="pop" data-icon="plus" data-rel="popup" class="ui-alt-icon ui-nodisc-icon" data-role="button" data-inline="true" data-position-to="window">WRITE</a>
-</div>
 
 
 <ul data-count-theme="b" data-mini="true" id="posts" class="no_ws post_list" data-inset="true" data-role="listview">

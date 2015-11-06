@@ -1,4 +1,4 @@
-<?php include('header.php'); include('connect.php');
+<?php include('header.php'); include('connect.php'); include('fun.php');
 session_start();
 $uid=$_SESSION['user']['id'];
 $notes_html='';
@@ -6,7 +6,7 @@ $notes_html='';
 $row=$db->select('notes',"uid='$uid'");
 for ($i=0; $i<count($row); $i++)
 {
-$notes_html.='<li><a data-transition="slide" href="view_note.php?id='.$row[$i]['id'].'">'.$row[$i]['title'].'</a></li>';
+$notes_html.='<li><a data-transition="slide" href="view_note.php?id='.$row[$i]['id'].'">'.$row[$i]['title'].'</a> <p class="ui-li-aside">'.prettyDate($row[$i]['time']).'</p> </li>';
 }
 ?>
 
@@ -15,7 +15,8 @@ $notes_html.='<li><a data-transition="slide" href="view_note.php?id='.$row[$i]['
 <!--LOGO-->
 
 <div data-role="header" data-theme="a" >
-<a href="index.php" data-ajax="false" data-icon="home" class="">HOME</a>
+<a href="index.php"  class="ui-nodisc-icon ui-alt-icon" data-ajax="false" data-icon="carat-l" data-iconpos="notext">back</a>
+
 <h1>Notes</h1>
 <a data-type="button" data-icon="plus" data-transition="slideup" class="ui-nodisc-icon ui-alt-icon" href="#add_note">ADD</a>
 </div>
@@ -38,7 +39,7 @@ $notes_html.='<li><a data-transition="slide" href="view_note.php?id='.$row[$i]['
 <!--LOGO-->
 
 <div data-role="header" data-theme="a" >
-<a href="notes.php" data-rel="back" class="ui-nodisc-icon ui-alt-icon" data-icon="carat-d" data-iconpos="notext">back</a>
+<a href="notes.php" data-rel="back" class="ui-btn-right ui-nodisc-icon ui-alt-icon" data-icon="carat-d" data-iconpos="notext">back</a>
 <h1>Add Note</h1>
 </div>
 
