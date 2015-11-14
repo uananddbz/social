@@ -20,6 +20,8 @@ $user=$row[0];
 <!--LOGO-->
 
 <div data-role="header">
+<a data-role="button" href="profile.php" data-rel="back">Cancel</a>
+
 <h1>Edit Profile</h1>
 </div>
 
@@ -52,11 +54,8 @@ $user=$row[0];
 	  <label for="about">about</label>
       <input name="about" id="about" value="<?=$user['about']?>" type="text">
 	  </li></ul>
+<button type="submit" data-theme="e">SAVE</button>
 
-<fieldset class="ui-grid-a">
-<div class="ui-block-a"><button type="submit" data-theme="e">SAVE</button></div>
-<div class="ui-block-b"><a data-role="button" href="profile.php" data-rel="back">Cancel</a></div>
-</fieldset>
     </form>
 	
 </div>

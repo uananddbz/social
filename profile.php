@@ -89,20 +89,19 @@ $( function() {
 <div data-role="header">
 <a href="index.php" data-ajax="false" class="ui-nodisc-icon ui-alt-icon" data-icon="carat-l" data-iconpos="notext">home</a>
 <h1><?=$user['fname'].' '.$user['lname'];?></h1>
-
 </div>
 
 
 <!--CONTAINER-->
 <div role="main" class="ui-content">
 <div data-role="popup" id="profile_pic" data-overlay-theme="b"  data-theme="d" data-corners="false">
-<img src="avatar.jpg">
+<img src="https://graph.facebook.com/<?=$_SESSION['user']['username']?>/picture?type=large" />
 </div>
 
 <div data-role="popup" id="del_post" data-overlay-theme="b" data-dismissible="false" >
-<div data-role="header" data-theme="a"><h1>Are you sure?</h1></div>
+<div style="min-width:300px;" data-role="header" data-theme="a"><h1>Delete Post</h1></div>
 <div role="main" class="ui-content">
-<p>Delete Post <b>parmanently!</b></p>
+<p>Are you sure ?</p>
 <fieldset class="ui-grid-a"><div class="ui-block-a">
 <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-c" onclick="del_post(d_el);" data-rel="back" data-transition="flow">YES</a></div><div class="ui-block-b">
 <a href="#" class="ui-btn ui-corner-all ui-shadow " data-rel="back">NO</a></div></fieldset>
@@ -110,12 +109,25 @@ $( function() {
 </div>
 
 <p>
-<a href="#profile_pic" data-rel="popup" data-position-to="window" data-transition="pop"><img style="vertical-align:middle;width:100px;" src="avatar.jpg"></a>
-<a data-inline="true" data-role="button" href="edit_profile.php" class="ui-nodisc-icon ui-alt-icon" data-transition="slideup"  data-icon="edit">Edit profile</a>
+<a href="#profile_pic" data-rel="popup" data-position-to="window" data-transition="pop"><img style="vertical-align:middle;width:100px;" src="https://graph.facebook.com/<?=$_SESSION['user']['username']?>/picture?type=large"></a>
 </p>
 
 
+<ul data-role="listview" data-inset="true" >
+<li data-role="list-divider"><h4>BASIC INFORMATION</h4><span class="ui-li-aside"><a href="edit_profile.php" class=" " data-transition="slideup">EDIT</a></span>
+</li>
+<li><h4>Gender</h4><p><?=$user['gender']?></p></li>
+<li><h4>DOB</h4><p><?=$user['dob']?></p></li>
+<li><h4>Country</h4><p><?=$user['country']?></p></li>
+<li><h4>Occupation</h4><p><?=$user['occupation']?></p></li>
+<li><h4>About</h4><p><?=$user['about']?></p></li>
+</ul>
+
+
+
+
 <ul id="posts" data-role="listview" class="no_ws post_list" data-inset="true">
+<li data-role="list-divider"><h4>POSTS</h4></li>
 <?=$p_html?>
 </ul>
 <div class="ui-bar c">

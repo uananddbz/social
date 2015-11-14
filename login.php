@@ -1,4 +1,30 @@
-<?php include('header.php');?>
+<?php
+session_start();
+
+ include('header.php');
+
+
+# facebook login
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+$fb = new Facebook\Facebook([
+  'app_id' => '209689342413048',
+  'app_secret' => '19dca080414c053cd47302a18d3e64ec',
+  'default_graph_version' => 'v2.2',
+  ]);
+
+# create login button
+
+$helper = $fb->getRedirectLoginHelper();
+$permissions = ['email', 'user_likes','user_friends']; // optional
+$loginUrl = $helper->getLoginUrl('http://localhost:8080/login-callback.php', $permissions);
+
+$fb_btn= '<a class="ui-btn ui-btn-e" href="' . $loginUrl . '">Log in with Facebook!</a>';
+
+
+
+?>
 
 
 <div id="login_page" data-role="page">
@@ -41,8 +67,8 @@ $.ajax({url:"ajax.php",
       <input data-clear-btn="true" name="username" id="l_username" value="" type="text" required>
       <label for="l_password">password</label>
       <input data-clear-btn="true" name="password" id="l_password" value="" type="password" required>
-		  <button type="submit" data-icon="eye" data-shadow="false" data-theme="e">LOGIN</button>
-
+		  <button type="submit" data-icon="eye" data-shadow="false" >LOGIN</button>
+<div style="text-align:center;" class="ui-bar"><b>OR</b></div><?=$fb_btn?>
     </form>
 
 	</div>

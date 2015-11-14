@@ -155,7 +155,7 @@ $( "#search_friend" ).on( "listviewbeforefilter", function ( e, data ) {
 
 		  <ul  class="ui-alt-icon ui-nodisc-icon" data-theme="a"  data-role="listview">
 
-        <li  data-icon="false" data-theme="b" ><a data-ajax="false" href="profile.php" data-transition="slide"><img  src="avatar.jpg"><h2><?=$user['fullname']?></h2><p><?=$user['username']?></p></a></li>
+        <li  data-icon="false" data-theme="b" ><a data-ajax="false" href="profile.php" data-transition="slide"><img  src="https://graph.facebook.com/<?=$_SESSION['user']['username']?>/picture?type=large"><h2><?=$user['fullname']?></h2><p><?=$user['username']?></p></a></li>
 		<li><a data-ajax="false" href="friends.php" data-transition="slide">Friends <span class="ui-li-count"><?=count(to_array($user['r_list']))?></span> </a></li>
 		<li><a data-ajax="false" href="notes.php" data-transition="slide">Notes </a></li>
       </ul>

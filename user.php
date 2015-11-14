@@ -1,6 +1,7 @@
 <?php include('fun.php'); include('connect.php'); include('header.php'); include('classes/user_class.php');
 $action=new user($db);
 
+
 //get user info
 $uid=$_SESSION['user']['id'];
 
@@ -113,7 +114,7 @@ function friend_toggle(id) {
 $.ajax({url:"ajax.php",
 	   data:{'task':'friend_toggle','id':id},
 	   type:'POST',
-	   success:function(result) {alert(result);location.reload();}
+	   success:function(result) {location.reload();}
   });
 	
 }
@@ -156,14 +157,14 @@ $( function() {
 <!--CONTAINER-->
 <div data-role="content" >
 <div data-role="popup" id="profile_pic" data-overlay-theme="b" data-theme="d" data-corners="false">
-<img src="avatar.jpg">
+<img src="https://graph.facebook.com/<?=$_SESSION['user']['username']?>/picture?type=large">
 </div>
 
 
 
 
 <p>
-<a href="#profile_pic" data-rel="popup" data-position-to="window" data-transition="pop"><img style="vertical-align:middle;width:100px;" src="avatar.jpg"></a>
+<a href="#profile_pic" data-rel="popup" data-position-to="window" data-transition="pop"><img style="vertical-align:middle;width:100px;" src="https://graph.facebook.com/<?=$_SESSION['user']['username']?>/picture?type=large"></a>
 <span id="action"><div data-inline="true" data-role="controlgroup" data-type="horizontal"><?=$button?></div></span>
 </p>
 
