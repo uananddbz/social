@@ -3,6 +3,12 @@ $action=new user($db);
 
 
 $user=$_SESSION['user'];
+
+//<--profile picture url
+if($user['fb_login']) {$img_url='https://graph.facebook.com/'.$_SESSION['user']['username'].'/picture?type=large'; }
+else {$img_url='avatar.jpg';}
+//profile picture url-->
+
 //<--load posts
 $p_html='';
 $id=$user['id'];
@@ -95,7 +101,7 @@ $( function() {
 <!--CONTAINER-->
 <div role="main" class="ui-content">
 <div data-role="popup" id="profile_pic" data-overlay-theme="b"  data-theme="d" data-corners="false">
-<img src="https://graph.facebook.com/<?=$_SESSION['user']['username']?>/picture?type=large" />
+<img src="<?=$img_url?>" />
 </div>
 
 <div data-role="popup" id="del_post" data-overlay-theme="b" data-dismissible="false" >
@@ -109,7 +115,7 @@ $( function() {
 </div>
 
 <p>
-<a href="#profile_pic" data-rel="popup" data-position-to="window" data-transition="pop"><img style="vertical-align:middle;width:100px;" src="https://graph.facebook.com/<?=$_SESSION['user']['username']?>/picture?type=large"></a>
+<a href="#profile_pic" data-rel="popup" data-position-to="window" data-transition="pop"><img style="vertical-align:middle;width:100px;" src="<?=$img_url?>"></a>
 </p>
 
 

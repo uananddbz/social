@@ -46,6 +46,14 @@ $button='<button class="ui-btn ui-btn-inline" onclick="friend_toggle('.$fid.');"
 
 //connect button-->
 
+
+//<--profile picture url
+if($friend['fb_login']) {$img_url='https://graph.facebook.com/'.$_SESSION['user']['username'].'/picture?type=large'; }
+else {$img_url='avatar.jpg';}
+//profile picture url-->
+
+
+
 //<--load posts
 $p_html='';
 $oid=0;
@@ -157,22 +165,21 @@ $( function() {
 <!--CONTAINER-->
 <div data-role="content" >
 <div data-role="popup" id="profile_pic" data-overlay-theme="b" data-theme="d" data-corners="false">
-<img src="https://graph.facebook.com/<?=$_SESSION['user']['username']?>/picture?type=large">
+<img src="<?=$img_url?>">
 </div>
 
 
 
 
 <p>
-<a href="#profile_pic" data-rel="popup" data-position-to="window" data-transition="pop"><img style="vertical-align:middle;width:100px;" src="https://graph.facebook.com/<?=$_SESSION['user']['username']?>/picture?type=large"></a>
+<a href="#profile_pic" data-rel="popup" data-position-to="window" data-transition="pop"><img style="vertical-align:middle;width:100px;" src="<?=$img_url?>"></a>
 <span id="action"><div data-inline="true" data-role="controlgroup" data-type="horizontal"><?=$button?></div></span>
 </p>
 
 
-<div class='ui-alt-icon ui-nodisc-icon' data-role="collapsible">
-<h4>Basic information</h4>
-
-<ul  data-role="listview">
+<ul data-role="listview" data-inset="true" >
+<li data-role="list-divider"><h4>BASIC INFORMATION</h4>
+</li>
 <li><h4>Gender</h4><p><?=$friend['gender']?></p></li>
 <li><h4>DOB</h4><p><?=$friend['dob']?></p></li>
 <li><h4>Country</h4><p><?=$friend['country']?></p></li>
@@ -180,10 +187,12 @@ $( function() {
 <li><h4>About</h4><p><?=$friend['about']?></p></li>
 </ul>
 
-</div>
 
 
-<ul data-role="listview" class="no_ws post_list" id="posts" data-inset="true">
+
+<ul data-role="listview" data-inset="true" >
+<li data-role="list-divider"><h4>Posts</h4>
+</li>
 <?=$p_html?>
 </ul>
 <div class="ui-bar c">
